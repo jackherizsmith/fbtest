@@ -46,9 +46,12 @@
         // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
         console.log("Welcome!  Fetching your information.... ");
         FB.api("/me", function (response) {
-          console.log("Successful login for: " + response.name);
-          document.getElementById("status").innerHTML =
-            "Thanks for logging in, " + response.name + "!";
+          var source = new EventSource(
+            `https://streaming-graph.facebook.com/1011936652606051/live_comments?access_token=${response.authResponse.accessToken}&comment_rate=one_per_two_seconds&fields=from{name,id},message`
+          );
+          source.onmessage = function (event) {
+            console.log(event);
+          };
         });
       }
     </script>
