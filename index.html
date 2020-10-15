@@ -48,7 +48,7 @@
         FB.api("/me", function (response) {
           console.log(response);
           var source = new EventSource(
-            `https://streaming-graph.facebook.com/1011936652606051/live_comments?access_token=EAAQXgsM2nz8BAI3yNWFmzGZA9l31ZADaJx5ZCyj8HHgY5BTZCROiXwKiZCveckFgGymSOLjesIazVxCQuksLyEEHuo7b1e56MXStIqS65wMZC0sC6PG2TcAQ6fgoFZCWKBUZBSPiMrqaAt5zBiTpy7prg9xXeS4KmMCeVkFBkKcL4VeY3qwJbowiD8E1cdweTnWHSYA3gSgriQZDZD&comment_rate=one_per_two_seconds&fields=from{name,id},message`
+            `https://streaming-graph.facebook.com/1011936652606051/live_comments?access_token=EAAQXgsM2nz8BAAa8ogZBbnV6lUtxekv5URoriL8yLyx9hhGtBNPOEaxGli5Nc8wbk7SAZBtZCKlDnvaSx3gCR1SBFPMH5GdQEIH9bIuPkubvZB3qpS6HumvCIkMHp8EStRZAZA9SrtSKe7IFdUwCYb6j8GzO1b1BRCqtPZBqOA50Fu3dmjeTTnswrQow9niQvwGHuECcar7VwZDZD&comment_rate=one_per_two_seconds&fields=from{name,id},message`
           );
           source.onmessage = function (event) {
             console.log(event);
