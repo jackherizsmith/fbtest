@@ -47,7 +47,7 @@
         console.log("Welcome!  Fetching your information.... ");
         FB.api("/me", function (response) {
           var source = new EventSource(
-            `https://streaming-graph.facebook.com/1011936652606051/live_comments?access_token=${response.authResponse.accessToken}&comment_rate=one_per_two_seconds&fields=from{name,id},message`
+            `https://streaming-graph.facebook.com/1011936652606051/live_comments?access_token=${response.}&comment_rate=one_per_two_seconds&fields=from{name,id},message`
           );
           source.onmessage = function (event) {
             console.log(event);
@@ -58,7 +58,7 @@
 
     <!-- The JS SDK Login Button -->
 
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    <fb:login-button scope="user_videos" onlogin="checkLoginState();">
     </fb:login-button>
 
     <div id="status"></div>
